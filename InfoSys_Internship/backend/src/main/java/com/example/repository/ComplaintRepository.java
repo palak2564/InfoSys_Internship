@@ -8,6 +8,9 @@ import java.util.List;
 
 @Repository
 public interface ComplaintRepository extends MongoRepository<Complaint, String> {
+    
+    List<Complaint> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCaseOrNameContainingIgnoreCaseOrRoomContainingIgnoreCase(
+        String title, String description, String name, String room);
+    
     List<Complaint> findByStatus(String status);
-    List<Complaint> findByRoom(String room);
 }

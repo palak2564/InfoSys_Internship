@@ -3,87 +3,74 @@ package com.example.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "parking_lots")
+@Document(collection = "parking_spaces")
 public class Parking {
-    
     @Id
     private String id;
-    private String parkingId;
-    private String flatNumber;
-    private String block;
-    private boolean isOccupied;
-    private String assignedTo;
+    private String parkingId;      // Format: P-A234
+    private String block;          // A, B, C, D, E, F
+    private String flatNo;         // Associated Flat Number
+    private String residentName;   // Name of the resident (optional)
+    private boolean isOccupied;    // Occupation status
     
-    // Constructors
-    public Parking() {
-    }
-    
-    public Parking(String parkingId, String flatNumber, String block, boolean isOccupied) {
+    // Default Constructor
+    public Parking() {}
+
+    // Parameterized Constructor
+    public Parking(String parkingId, String block, String flatNo, String residentName, boolean isOccupied) {
         this.parkingId = parkingId;
-        this.flatNumber = flatNumber;
         this.block = block;
+        this.flatNo = flatNo;
+        this.residentName = residentName;
         this.isOccupied = isOccupied;
     }
-    
+
     // Getters and Setters
     public String getId() {
         return id;
     }
-    
+
     public void setId(String id) {
         this.id = id;
     }
-    
+
     public String getParkingId() {
         return parkingId;
     }
-    
+
     public void setParkingId(String parkingId) {
         this.parkingId = parkingId;
     }
-    
-    public String getFlatNumber() {
-        return flatNumber;
-    }
-    
-    public void setFlatNumber(String flatNumber) {
-        this.flatNumber = flatNumber;
-    }
-    
+
     public String getBlock() {
         return block;
     }
-    
+
     public void setBlock(String block) {
         this.block = block;
     }
-    
+
+    public String getFlatNo() {
+        return flatNo;
+    }
+
+    public void setFlatNo(String flatNo) {
+        this.flatNo = flatNo;
+    }
+
+    public String getResidentName() {
+        return residentName;
+    }
+
+    public void setResidentName(String residentName) {
+        this.residentName = residentName;
+    }
+
     public boolean isOccupied() {
         return isOccupied;
     }
-    
-    public void setOccupied(boolean occupied) {
-        isOccupied = occupied;
-    }
-    
-    public String getAssignedTo() {
-        return assignedTo;
-    }
-    
-    public void setAssignedTo(String assignedTo) {
-        this.assignedTo = assignedTo;
-    }
-    
-    @Override
-    public String toString() {
-        return "Parking{" +
-                "id='" + id + '\'' +
-                ", parkingId='" + parkingId + '\'' +
-                ", flatNumber='" + flatNumber + '\'' +
-                ", block='" + block + '\'' +
-                ", isOccupied=" + isOccupied +
-                ", assignedTo='" + assignedTo + '\'' +
-                '}';
+
+    public void setOccupied(boolean isOccupied) {
+        this.isOccupied = isOccupied;
     }
 }
-

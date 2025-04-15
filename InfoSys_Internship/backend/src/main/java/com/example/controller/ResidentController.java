@@ -55,6 +55,13 @@ public class ResidentController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+    
+    @GetMapping("/by-email")
+    public ResponseEntity<?> getResidentByEmail(@RequestParam String email) {
+        return residentRepository.findByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateResident(@PathVariable String id, @RequestBody Resident updatedResident) {
@@ -63,6 +70,7 @@ public class ResidentController {
             if (updatedResident.getPhoneNo() != null) resident.setPhoneNo(updatedResident.getPhoneNo());
             if (updatedResident.getBlock() != null) resident.setBlock(updatedResident.getBlock());
             if (updatedResident.getFlatNo() != null) resident.setFlatNo(updatedResident.getFlatNo());
+            if (updatedResident.getSocietyName() != null) resident.setSocietyName(updatedResident.getSocietyName());
             residentRepository.save(resident);
             return ResponseEntity.ok(Collections.singletonMap("message", "Resident updated successfully"));
         }).orElseGet(() -> ResponseEntity.notFound().build());
@@ -75,5 +83,21 @@ public class ResidentController {
             return ResponseEntity.ok(Collections.singletonMap("message", "Resident deleted successfully"));
         }
         return ResponseEntity.notFound().build();
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<Resident>> getAllResidents() {
+        return ResponseEntity.ok(residentRepository.findAll());
+    }
+    
+    @GetMapping("/flat-numbers")
+    public ResponseEntity<List<String>> getAllFlatNumbers() {
+        List<String> flatNumbers = residentRepository.findAll()
+                .stream()
+                .map(Resident::getFlatNo)
+                .filter(Objects::nonNull)
+                .distinct()
+                .toList();
+        return ResponseEntity.ok(flatNumbers);
     }
 }
