@@ -1,0 +1,70 @@
+.admin-services-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .vendor-services-section {
+    margin-bottom: 30px;
+  }
+  
+  .vendor-services-card {
+    background-color: #E9F1FA;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .vendor-services-card h3 {
+    margin-bottom: 10px;
+    color: #2C74B3;
+  }
+  
+  .vendor-services-card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2C74B3;
+  }
+  
+  .vendors-list-section {
+    background-color: white;
+  }
+  
+  .vendors-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .vendors-list-header h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .add-vendor-btn {
+    background-color: #2C74B3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .vendors-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .vendors-table th,
+  .vendors-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .vendors-table th {
+    background-color: #F8F9FA;
+    color: #666;
+  }

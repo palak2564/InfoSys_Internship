@@ -1,0 +1,76 @@
+.complaints-list-container {
+    padding: 20px;
+  }
+  
+  .complaints-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .summary-card {
+    flex: 1;
+    margin: 0 10px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .summary-card .count {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .summary-card .label {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .total-complaints {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .total-open {
+    background-color: #ffc107;
+    color: white;
+  }
+  
+  .total-closed {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .complaints-filter {
+    margin-bottom: 15px;
+  }
+  
+  .complaints-filter select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .complaints-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .complaints-table th,
+  .complaints-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .complaints-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .status-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+  }
